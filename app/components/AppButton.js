@@ -24,11 +24,4 @@ function AppButton({ title, onPress, backgroundColor, color }) {
   )
 }
 
-AppButton.propTypes = {
-  title: PropTypes.string.isRequired,
-  onPress: PropTypes.func.isRequired,
-  backgroundColor: PropTypes.string,
-  color: PropTypes.string
-}
-
 export default AppButton

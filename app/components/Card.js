@@ -2,9 +2,9 @@ import { Image, StyleSheet, View } from 'react-native'
 import colors from '../config/colors'
 import AppText from './AppText'
 
-function Card({ title, subTitle, image }) {
+function Card({ title, subTitle, image, style }) {
   return (
-    <View style={styles.card}>
+    <View style={[styles.card, style]}>
       <Image style={styles.image} source={image}></Image>
       <View style={styles.detailsContainer}>
         <AppText style={styles.title}>{title}</AppText>
@@ -35,11 +35,5 @@ const styles = StyleSheet.create({
     padding: 20
   }
 })
-
-Card.propTypes = {
-  title: PropTypes.string.isRequired,
-  subTitle: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired
-}
 
 export default Card

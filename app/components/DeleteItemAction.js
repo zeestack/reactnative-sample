@@ -21,7 +21,3 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   }
 })
-
-DeleteItemAction.propTypes = {
-  onPress: PropTypes.func.isRequired
-}

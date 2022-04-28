@@ -10,9 +10,4 @@ const styles = StyleSheet.create({
   }
 })
 
-AppText.propTypes = {
-  style: Text.propTypes.style,
-  children: Text.propTypes.children
-}
-
 export default AppText

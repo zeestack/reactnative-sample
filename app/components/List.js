@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { FlatList, StyleSheet } from 'react-native'
-import DeleteItemAction from './DeleteItemAction'
 import ListItem from './ListItem'
 import ListItemSeparator from './ListItemSeparator'
 
@@ -19,7 +18,7 @@ const ListItems = [
   }
 ]
 
-export default function List() {
+export default function List({ data, keyExtractor, rightAction, onPress }) {
   const [items, setItems] = useState(ListItems)
   const [refreshing, setRefreshing] = useState(false)
 
@@ -29,15 +28,17 @@ export default function List() {
 
   return (
     <FlatList
-      data={items}
-      keyExtractor={(item) => item.id}
+      data={data || items}
+      keyExtractor={keyExtractor}
       renderItem={({ item }) => (
         <ListItem
           title={item.title}
+          icon={item.icon}
           subTitle={item.subTitle}
           image={item.image}
-          onPress={() => console.log('List Item Pressed')}
-          renderRightActions={() => <DeleteItemAction onPress={() => handleDelete(item)} />}
+          onPress={onPress}
+          IconComponent={item.IconComponent}
+          renderRightActions={rightAction}
         />
       )}
       ItemSeparatorComponent={ListItemSeparator}
