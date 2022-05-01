@@ -1,13 +1,9 @@
-import { MaterialCommunityIcons } from '@expo/vector-icons'
 import * as ImagePicker from 'expo-image-picker'
+
+import { Alert, Image, StyleSheet, TouchableWithoutFeedback, View } from 'react-native'
+
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 import React from 'react'
-import {
-  Alert,
-  Image,
-  StyleSheet,
-  TouchableWithoutFeedback,
-  View
-} from 'react-native'
 import colors from '../config/colors'
 
 export default function ImageInput({ imageUri, onChangeImage }) {
@@ -37,13 +33,7 @@ export default function ImageInput({ imageUri, onChangeImage }) {
   return (
     <TouchableWithoutFeedback onPress={handleImagePick}>
       <View style={styles.container}>
-        {imageUri && (
-          <Image
-            source={{ uri: imageUri }}
-            style={styles.image}
-            resizeMode='cover'
-          />
-        )}
+        {imageUri && <Image source={{ uri: imageUri }} style={styles.image} resizeMode='cover' />}
         {!imageUri && <MaterialCommunityIcons name='camera' size={50} />}
       </View>
     </TouchableWithoutFeedback>

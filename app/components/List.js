@@ -1,7 +1,8 @@
-import { useState } from 'react'
 import { FlatList, StyleSheet } from 'react-native'
+
 import ListItem from './ListItem'
 import ListItemSeparator from './ListItemSeparator'
+import { useState } from 'react'
 
 const ListItems = [
   {
@@ -39,6 +40,7 @@ export default function List({ data, keyExtractor, rightAction, onPress }) {
           onPress={onPress}
           IconComponent={item.IconComponent}
           renderRightActions={rightAction}
+          showChevron
         />
       )}
       ItemSeparatorComponent={ListItemSeparator}

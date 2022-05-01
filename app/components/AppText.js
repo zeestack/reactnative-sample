@@ -1,13 +1,12 @@
-import { StyleSheet, Text } from 'react-native'
+import { Text } from 'react-native'
+import defaultStyles from '../config/styles'
 
-const AppText = ({ style, children }) => {
-  return <Text style={[styles.text, style]}>{children}</Text>
+const AppText = ({ children, style, ...rest }) => {
+  return (
+    <Text style={[defaultStyles.text, style]} {...rest}>
+      {children}
+    </Text>
+  )
 }
-
-const styles = StyleSheet.create({
-  text: {
-    fontSize: 20
-  }
-})
 
 export default AppText

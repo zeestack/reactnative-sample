@@ -1,9 +1,9 @@
 {
   "javascript.format.semicolons": "remove",
   "workbench.iconTheme": "eq-material-theme-icons-ocean",
-  "workbench.colorTheme": "Night Wolf (dark gray)",
+  "workbench.colorTheme": "lucy-evening",
   "editor.fontFamily": "MonoLisa, Menlo, Monaco, 'Courier New', monospace",
-  "editor.fontSize": 16,
+  "editor.fontSize": 18,
 
   "editor.fontLigatures": true,
 
