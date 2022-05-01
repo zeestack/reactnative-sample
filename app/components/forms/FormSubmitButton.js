@@ -21,7 +21,7 @@ export default function FormSubmitButton({ label, size }) {
       onPress={submitForm}
       backgroundColor={defaultStyles.colors.primary}
       color={defaultStyles.colors.white}
-      disabled={isInvalid()}
+      //disabled={isInvalid()}
     />
   )
 }

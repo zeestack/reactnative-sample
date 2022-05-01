@@ -2,9 +2,9 @@ import * as Yup from 'yup'
 
 import { Image, StyleSheet, View } from 'react-native'
 
-import Form from '../components/form/Form'
-import FormButtons from '../components/form/FormButtons'
-import FormInput from '../components/form/FormInput'
+import Form from '../components/forms/Form'
+import FormButtons from '../components/forms/FormButtons'
+import FormInput from '../components/forms/FormInput'
 import React from 'react'
 import Screen from '../components/Screen'
 import defaultStyles from '../config/styles'
@@ -18,7 +18,10 @@ export default function LoginScreen() {
   return (
     <Screen style={styles.main}>
       <View style={styles.logoContainer}>
-        <Image style={styles.logo} source={require('../assets/logo-red.png')}></Image>
+        <Image
+          style={styles.logo}
+          source={require('../assets/logo-red.png')}
+        ></Image>
       </View>
 
       <Form

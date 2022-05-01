@@ -1,13 +1,17 @@
 import * as Yup from 'yup'
 
-import FancyPickerItem from '../components/picker/FancyPickerItem'
-import Form from '../components/form/Form'
-import FormInput from '../components/form/FormInput'
-import FormPicker from '../components/form/FormPicker'
-import FormSubmitButton from '../components/form/FormSubmitButton'
+import Form, {
+  FormImagePicker,
+  FormInput,
+  FormPicker,
+  FormSubmitButton
+} from '../components/forms'
+
+import { FancyPickerItem } from '../components/picker'
 import React from 'react'
 import Screen from '../components/Screen'
 import { StyleSheet } from 'react-native'
+import useLocation from '../hooks/useLocation'
 
 const items = [
   {
@@ -52,7 +56,10 @@ const items = [
 ]
 
 export default function ListingEditScreen() {
+  const location = useLocation()
+
   const validationSchema = Yup.object({
+    imageUris: Yup.array().min(1, 'Please select at least one image'),
     title: Yup.string().min(2).required(),
     price: Yup.number()
       .typeError('price must be a number.')
@@ -70,13 +77,15 @@ export default function ListingEditScreen() {
           title: '',
           price: '',
           description: '',
-          category: null
+          category: null,
+          imageUris: []
         }}
         validationSchema={validationSchema}
         onSubmit={(values) => {
-          console.log('Form Submitted', values)
+          console.log('Form Submitted', values, location)
         }}
       >
+        <FormImagePicker name='imageUris' />
         <FormInput name='title' placeholder='Title' maxLength={255} />
         <FormInput
           name='price'
@@ -109,7 +118,6 @@ export default function ListingEditScreen() {
 
 const styles = StyleSheet.create({
   main: {
-    flex: 1,
     width: '100%',
     justifyContent: 'flex-start',
     padding: 20
