@@ -14,7 +14,12 @@ export function useForm() {
   return useContext(FormContext)
 }
 
-export default function Form({ initialValues, onSubmit, children, validationSchema }) {
+export default function Form({
+  initialValues,
+  onSubmit,
+  children,
+  validationSchema
+}) {
   const form = useFormik({
     initialValues,
     validationSchema,
@@ -22,5 +27,10 @@ export default function Form({ initialValues, onSubmit, children, validationSche
     validateOnChange: true,
     onSubmit
   })
-  return <FormProvider value={{ form, schema: validationSchema }}>{children}</FormProvider>
+
+  return (
+    <FormProvider value={{ form, schema: validationSchema }}>
+      {children}
+    </FormProvider>
+  )
 }
